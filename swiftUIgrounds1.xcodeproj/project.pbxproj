@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD3D6842290FBFD2003D680E /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D6841290FBFD2003D680E /* Hike.swift */; };
+		BD3D6843290FBFD2003D680E /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3D6841290FBFD2003D680E /* Hike.swift */; };
 		BDA5624F290DD09C00064D96 /* swiftUIgrounds1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5624E290DD09C00064D96 /* swiftUIgrounds1App.swift */; };
 		BDA56251290DD09C00064D96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA56250290DD09C00064D96 /* ContentView.swift */; };
 		BDA56253290DD0A000064D96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA56252290DD0A000064D96 /* Assets.xcassets */; };
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD3D6841290FBFD2003D680E /* Hike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
 		BDA5624B290DD09C00064D96 /* swiftUIgrounds1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftUIgrounds1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA5624E290DD09C00064D96 /* swiftUIgrounds1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftUIgrounds1App.swift; sourceTree = "<group>"; };
 		BDA56250290DD09C00064D96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +74,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD3D6840290FBFC1003D680E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD3D6841290FBFD2003D680E /* Hike.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD3D6844290FC0CC003D680E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BDA56242290DD09C00064D96 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +112,8 @@
 		BDA5624D290DD09C00064D96 /* swiftUIgrounds1 */ = {
 			isa = PBXGroup;
 			children = (
+				BD3D6840290FBFC1003D680E /* Models */,
+				BD3D6844290FC0CC003D680E /* Views */,
 				BDA5624E290DD09C00064D96 /* swiftUIgrounds1App.swift */,
 				BDA56250290DD09C00064D96 /* ContentView.swift */,
 				BDA56252290DD0A000064D96 /* Assets.xcassets */,
@@ -257,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3D6842290FBFD2003D680E /* Hike.swift in Sources */,
 				BDA56251290DD09C00064D96 /* ContentView.swift in Sources */,
 				BDA5624F290DD09C00064D96 /* swiftUIgrounds1App.swift in Sources */,
 			);
@@ -266,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD3D6843290FBFD2003D680E /* Hike.swift in Sources */,
 				BDA56260290DD0A100064D96 /* swiftUIgrounds1Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,61 @@ extension Image {
     
 }
 struct ContentView: View {
+    
+    let allHikes = Hike.testInfo()
+    
+    @State var x = 2;
+    @State private var isAnimating = false;
+    
     var body: some View {
+        
+        
+        VStack {
+            List(self.allHikes, id:\.name) { hike in
+                Text("" + hike.name)
+                    
+            }
+            .frame(maxHeight: 200)
+            Spacer();
+            
+            HStack {
+                Button {
+        //            return nil;
+                    self.x = 1 + 2;
+                } label: {
+                    
+                    ZStack {
+                        ZStack {
+                            Color(.blue)
+                        }
+                        ZStack {
+                            Color(.systemBlue)
+                                .cornerRadius(50)
+                        }
+                        .padding()
+                        Text("Hi")
+                            .font(.system(.title2, design: .serif))
+                            .foregroundColor(.white)
+                            .fontWeight(.regular)
+                            .multilineTextAlignment(.center)
+                            .opacity(isAnimating ? 1 : 0)
+                            .offset(y: isAnimating ? 0 : -40)
+                            .animation(.easeOut(duration: 1), value: isAnimating)
+                    }
+                    .cornerRadius(30)
+                    .padding(.horizontal)
+                }
+                .buttonStyle(.plain)
+            .frame(minHeight: 100.0)
+            } //Bottom Hstack
+            .frame(maxHeight: 100)
+            .onAppear {
+                isAnimating = true
+            }
+        }
+        
+
+        /*
         let imageURL: String = "https://credo.academy/credo-academy@3x.png";
         //ant if URL fail.gi
         //MARK: 1. BASIC
@@ -90,7 +144,8 @@ struct ContentView: View {
 //        .padding()
 //        .border(Color.purple, width: 5)
 //        .blur(radius: 0)
-    }
+         */
+    } //body
 }
 
 struct ContentView_Previews: PreviewProvider {
