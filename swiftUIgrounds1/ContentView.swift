@@ -26,8 +26,8 @@ extension Image {
 struct ContentView: View {
     
     let allHikes = Hike.testInfo()
-    
-    @State var x = 2;
+    @State private var isOnboardingViewActive: Bool = false
+    @State var x: Double = 2;
     @State private var isAnimating = false;
     
     var body: some View {
@@ -39,12 +39,42 @@ struct ContentView: View {
                     
             }
             .frame(maxHeight: 200)
+            
+            if (isOnboardingViewActive) {
+                Button {
+                    
+                } label: {
+                    Text("Hihi")
+                }
+            }
+            
+            Rectangle().fill(.blue).frame(minWidth: 0, maxWidth: .infinity,
+                                          minHeight: 0, maxHeight: 10)
+            
+            ZStack {
+                Circle().stroke(style: .init(lineWidth: 2)).foregroundColor(.blue).background(Color.init(red: 1.0, green: 0.1, blue: 0.1, opacity: 0.3))
+                    .cornerRadius(55)
+        
+                Circle().stroke(.green, lineWidth: 6)
+            }
+            .frame(maxWidth: 110)
+                
+            
             Spacer();
             
+//            withAnimation {
+                //if condition
+                //views switch
+                //or state changes in here, affecting views
+//            }
             HStack {
                 Button {
         //            return nil;
                     self.x = 1 + 2;
+                    withAnimation(.easeInOut(duration: 2.0)) {
+                        isOnboardingViewActive.toggle() // = true;
+                    }
+                    
                 } label: {
                     
                     ZStack {
@@ -61,21 +91,35 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .fontWeight(.regular)
                             .multilineTextAlignment(.center)
-                            .opacity(isAnimating ? 1 : 0)
-                            .offset(y: isAnimating ? 0 : -40)
-                            .animation(.easeOut(duration: 1), value: isAnimating)
+//                            .opacity(isAnimating ? 1 : 0)
+//                            .offset(y: isAnimating ? 0 : -40)
+//                            .animation(.easeOut(duration: 1), value: isAnimating)
                     }
                     .cornerRadius(30)
                     .padding(.horizontal)
+//                    .controlSize(.large)
+//                    .buttonBorderShape(.capsule)
                 }
                 .buttonStyle(.plain)
             .frame(minHeight: 100.0)
             } //Bottom Hstack
             .frame(maxHeight: 100)
-            .onAppear {
-                isAnimating = true
+            .opacity(isAnimating ? 1 : 0)
+            .offset(y: isAnimating ? 0 : -40)
+            .scaleEffect(isAnimating ? 1 : 0.5)
+            .animation(
+                Animation.easeOut(duration: 1)
+                        .repeatCount(3)
+                       , value: isAnimating)
+            .onAppear { //it takes the value as the trigger for when to animate.
+                isAnimating = false
             }
         }
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                isAnimating = true;
+            })
+        })
         
 
         /*
